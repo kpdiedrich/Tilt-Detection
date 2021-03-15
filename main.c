@@ -1,14 +1,14 @@
 //  Interfacing ADXL345 accelerometer with MSP430FR2355 using I2C communication. XBee radio module is interfaced with UART.
 //  Data is transmitted wirelessly to XCTU using UART A0 or to a terminal in Code Composer Studio (by way of micro USB) using UART A1.
 //                                   3V3
-//                                /|\  /|\                                        XBee Transceiver
-//                  ADXL345       10k  10k          MSP430FR2355                      -------     ^)))
-//                   Slave         |    |              Master                        /       \____|
-//             -----------------   |    |  ----------------------------             /         \
-//            |3V3           SDA|<-|----+>|P1.2/UCB0SDA    P1.7/UCA0TXD|---------->|DIN     3V3|
-//            |                 |  |      |                            |           |           |
-//            |                 |  |      |                            |           |           |
-//            |GND           SCL|<-+----->|P1.3/UCB0SCL    P4.3/UCA1RXD|<----------|DOUT    GND|
+//                                                                                XBee Transceiver
+//                  ADXL345                         MSP430FR2355                      -------     ^)))
+//                   Slave                             Master                        /       \____|
+//             -----------------           ----------------------------             /         \
+//            |3V3           SDA|<------+>|P1.2/UCB0SDA    P1.7/UCA0TXD|---------->|DIN     3V3|
+//            |                 |         |                            |           |           |
+//            |                 |         |                            |           |           |
+//            |GND           SCL|<------->|P1.3/UCB0SCL    P4.3/UCA1RXD|<----------|DOUT    GND|
 //            |                 |         |3V3                      GND|           |           |
 //----------------------------------------------------------------------------------------------------------
 #include <msp430.h> 
@@ -316,7 +316,7 @@ void UCA0_UART_Send(float x, float y, float z, float roll, float pitch)
 {                               // If using UART A0 to transmit data to XCTU
     unsigned char i;
 
-    sprintf(eUSCI_A0_UART.Buffer, "X=%fg Y=%fg Z=%fg Roll=%f° Pitch=%f°\r\n", x, y, z, roll, pitch);
+    sprintf(eUSCI_A0_UART.Buffer, "X=%fg Y=%fg Z=%fg Roll=%fÂ° Pitch=%fÂ°\r\n", x, y, z, roll, pitch);
 
     // CALCULATE #BYTES TO SEND
     eUSCI_A0_UART.Length = strlen(eUSCI_A0_UART.Buffer);
@@ -365,8 +365,8 @@ void UCA0_UART_Send(float x, float y, float z, float roll, float pitch)         
 {
     unsigned char i;
 
-    //sprintf(eUSCI_A0_UART.Buffer, "X=%fg Y=%fg Z=%fg Roll=%f° Pitch=%f°\r\n", x, y, z, roll, pitch);
-    sprintf(eUSCI_A0_UART.Buffer, "X=%.3fg Y=%.3fg Z=%.3fg Roll=%.3f° Pitch=%.3f°\r\n", x, y, z, roll, pitch);
+    //sprintf(eUSCI_A0_UART.Buffer, "X=%fg Y=%fg Z=%fg Roll=%fÂ° Pitch=%fÂ°\r\n", x, y, z, roll, pitch);
+    sprintf(eUSCI_A0_UART.Buffer, "X=%.3fg Y=%.3fg Z=%.3fg Roll=%.3fÂ° Pitch=%.3fÂ°\r\n", x, y, z, roll, pitch);
 
     // CALCULATE #BYTES TO SEND
     eUSCI_A0_UART.Length = strlen(eUSCI_A0_UART.Buffer);
