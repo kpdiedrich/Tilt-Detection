@@ -1,11 +1,11 @@
 //  Interfacing ADXL345 accelerometer with MSP430FR2355 using I2C communication. XBee radio module is interfaced with UART.
 //  Data is transmitted wirelessly to XCTU using UART A0 or to a terminal in Code Composer Studio (by way of micro USB) using UART A1.
-//                                   3V3
+//                                   
 //                                                                                XBee Transceiver
 //                  ADXL345                         MSP430FR2355                      -------     ^)))
 //                   Slave                             Master                        /       \____|
 //             -----------------           ----------------------------             /         \
-//            |3V3           SDA|<------+>|P1.2/UCB0SDA    P1.7/UCA0TXD|---------->|DIN     3V3|
+//            |3V3           SDA|<------->|P1.2/UCB0SDA    P1.7/UCA0TXD|---------->|DIN     3V3|
 //            |                 |         |                            |           |           |
 //            |                 |         |                            |           |           |
 //            |GND           SCL|<------->|P1.3/UCB0SCL    P4.3/UCA1RXD|<----------|DOUT    GND|
