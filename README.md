@@ -1,5 +1,8 @@
 # Tilt-Detection
-Interfacing ADXL345 accelerometer with MSP430FR2355 Launchpad™ using I2C communication. XBee radio module is interfaced with UART. Data is transmitted wirelessly to XCTU using UART A0 or to a terminal in Code Composer Studio (by way of micro USB) using UART A1.
+Increasing loads acting on a wind turbine foundation increases the risk of sudden downtime and damages to the power infrastructure. The system used for wind turbine tilt monitoring costs about $2400, making traditional structural health monitoring systems costly to implement and thus are not always done.
+
+The objective of the project was to design and test a low-cost wireless node prototype to monitor the tilt a wind turbine foundation experiences over time. The system would benefit turbine manufacturers by providing a low-cost alternative to current expensive systems. Remotely monitoring wind turbines would reduce costs associated with repairs and turbine downtime. The prototype would act as a single node within a larger network of nodes to monitor wind turbine farms.    
+
 
 Project Demonstration: https://youtu.be/OOg2Mi0VXnU
 
